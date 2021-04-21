@@ -12,12 +12,15 @@ const profiles = require("./routes/profiles");
 // This is the client-side's /build/ directory, where all the compiled frontend files are we want to serve. Putting it in a variable for reuse is cleaner.
 const publicPath = path.resolve(__dirname, "../build");
 
+// Change this to be your full domain
+const domain = "https://wildfire-christine.herokuapp.com";
+
 // For express.static, it's better to serve the whole directory than just index.html, because we also need the CSS, JS, images, etc to be statically served also.
 // It also needs to be established before any other calls to app.use()
 app.use(express.static(publicPath));
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", domain);
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
