@@ -16,6 +16,9 @@ const publicPath = path.resolve(__dirname, "../build");
 // It also needs to be established before any other calls to app.use()
 app.use(express.static(publicPath));
 
+// Enables ALL CORS requests.
+app.use(cors());
+
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   // res.header("Access-Control-Allow-Credentials", "false");
@@ -29,7 +32,6 @@ app.use(express.static(publicPath));
 
 app.use(express.urlencoded());
 app.use(express.json());
-// app.use(cors());
 
 // The Homepage
 app.get("/", function (req, res) {
