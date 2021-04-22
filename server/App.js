@@ -17,7 +17,7 @@ const publicPath = path.resolve(__dirname, "../build");
 app.use(express.static(publicPath));
 
 // Enables ALL CORS requests.
-// app.use(cors());
+app.use(cors());
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
